@@ -47,7 +47,7 @@ PyTorch is fully ``pip install`` able, but PyPI, the default ``pip`` search inde
 some limitations:
 
 1. PyPI regularly only allows binaries up to a size of
-   `approximately 60 MB <https://github.com/pypa/packaging-problems/issues/86>`. You
+   `approximately 60 MB <https://github.com/pypa/packaging-problems/issues/86>`_. You
    can `request a file size limit increase <https://pypi.org/help/#file-size-limit>`_
    (and the PyTorch team probably did that), but it is still not enough: the Windows
    binaries cannot be installed through `PyPI <https://pypi.org/project/torch/#files>`_
