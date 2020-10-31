@@ -26,8 +26,9 @@
 Disclaimer
 ==========
 
-Neither this project (``pytorch-pip-shim``) nor its author (Philip Meier) are
-affiliated with `PyTorch <https://pytorch.org>`_ in any way. PyTorch and any related
+Neither this project (``pytorch-pip-shim``) nor its author
+(`Philip Meier <https://github.com/pmeier>`_) are affiliated with
+`PyTorch <https://pytorch.org>`_ in any way. PyTorch and any related
 marks are
 `trademarks of Facebook, Inc <https://pytorch.org/assets/brand-guidelines/PyTorch-Brand-Guidelines.pdf>`_.
 
