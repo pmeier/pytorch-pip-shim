@@ -66,7 +66,7 @@ still can use ``pip install``, but have to use some
 
 .. code-block:: sh
 
-  pip install torch==1.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
+  $ pip install torch==1.6.0+cpu -f https://download.pytorch.org/whl/torch_stable.html
 
 While this is certainly an improvement, it also has it downside: in addition to the
 computation backend, the version has to be specified exactly. Without knowing what the
@@ -78,7 +78,7 @@ recommends?
 
 .. code-block:: sh
 
-  conda install pytorch cpuonly -c pytorch
+  $ conda install pytorch cpuonly -c pytorch
 
 This should cover all cases, right? Well, almost. The above command is enough if you
 just need PyTorch. Imagine the case of a package that depends on PyTorch, but
@@ -98,7 +98,7 @@ Installing ``pytorch-pip-shim`` is as easy as
 
 .. code-block:: sh
 
-  pip install pytorch-pip-shim
+  $ pip install pytorch-pip-shim
 
 Since it depends on ``pip`` and it might be upgraded during installation,
 `Windows users <https://pip.pypa.io/en/stable/installing/#upgrading-pip>`_ should
@@ -106,7 +106,7 @@ install it with
 
 .. code-block:: sh
 
-  python -m pip install pytorch-pip-shim
+  $ python -m pip install pytorch-pip-shim
 
 How do I use it?
 ================
@@ -115,7 +115,7 @@ After ``pytorch-pip-shim`` is installed there is only a single step to insert th
 
 .. code-block:: sh
 
-  pytorch-pip-shim insert
+  $ pytorch-pip-shim insert
 
 After that you can use ``pip`` as you did before and ``pytorch-pip-shim`` handles the
 computation backend auto-detection for you in the background.
@@ -124,13 +124,13 @@ If you want to remove the shim you can do so with
 
 .. code-block:: sh
 
-  pytorch-pip-shim remove
+  $ pytorch-pip-shim remove
 
 You can check its status with
 
 .. code-block:: sh
 
-  pytorch-pip-shim status
+  $ pytorch-pip-shim status
 
 How do I uninstall it?
 ======================
@@ -139,7 +139,7 @@ Uninstalling is as easy as
 
 .. code-block:: sh
 
-  pip uninstall pytorch-pip-shim
+  $ pip uninstall pytorch-pip-shim
 
 By doing so, ``pytorch-pip-shim`` automatically removes the shim if inserted.
 
