@@ -5,13 +5,14 @@ import itertools
 import re
 import subprocess
 import sys
+from enum import IntEnum
 from os import path
 from sys import platform
 from unittest import mock
 
 import pytest
 
-from pip._internal.cli import main
+from pip._internal.cli import main, status_codes
 from pip._internal.network.download import _http_get_download
 from pip._internal.operations.prepare import RequirementPreparer
 from pip._vendor.requests.models import Response
@@ -21,6 +22,15 @@ import pytorch_pip_shim as pps
 from pytorch_pip_shim.computation_backend import ComputationBackend
 
 from tests import mocks, utils
+
+PIP_STATUS_CODES = IntEnum(
+    "PipStatusCodes",
+    {
+        name: status_code
+        for name, status_code in vars(status_codes).items()
+        if isinstance(status_code, int)
+    },
+)
 
 
 class Package:
@@ -72,7 +82,9 @@ class PyTorchPackage(Package):
 def run_pip_cmd(*args):
     with io.StringIO() as stdout_capture, contextlib.redirect_stdout(stdout_capture):
         with mock.patch.object(sys, "argv", new=["pip", *args]):
-            main.main()
+            status_code = PIP_STATUS_CODES(main.main())
+
+        assert status_code == PIP_STATUS_CODES.SUCCESS
         return stdout_capture.getvalue().strip()
 
 
